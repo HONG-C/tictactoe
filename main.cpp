@@ -29,6 +29,8 @@ int check_win(char (*arr)[3])//행렬을 입력받아 승부를 체크하는 함
       
     }
   }  
+  
+  
   for (int j=0;j<3;j++)//세로 한줄을 만들었을 시
   {
     if(arr[0][j]==arr[1][j]&&arr[1][j]==arr[2][j]&&arr[0][j]=='X')
@@ -46,6 +48,19 @@ int check_win(char (*arr)[3])//행렬을 입력받아 승부를 체크하는 함
       
     }
   }
+  
+  if(arr[0][0]==arr[1][1]&&arr[1][1]==arr[2][2]&&arr[0][0]=='O')//대각선에서 O가 이긴경우
+  {
+      cout<<"경기 끝! O의 승리!\n";
+      return 2;
+  }
+  
+  if(arr[0][0]==arr[1][1]&&arr[1][1]==arr[2][2]&&arr[0][0]=='X')//대각선에서 X가 이긴경우
+  {
+      cout<<"경기 끝! X의 승리!\n";
+      return 1;
+  }
+  
   return 0;//승부가 나지 않은 경우 함수 탈출!
 }
 
@@ -95,6 +110,20 @@ while(1)
       whoz_turn=0;
     }
   whoz_win=check_win(arr);  //누가 이겼는지 승부가 아직 안 났는지 확인
+  if(whoz_win==1)
+  {
+    cout<<"X가 이겼습니다! 게임을 종료합니다";
+    break;
+  }
+  if(whoz_win==2)
+  {
+    cout<<"O가 이겼습니다! 게임을 종료합니다";
+    break;
+  }
+  else
+  {
+    //승부가 안났으니 걍 진행!
+  }
   
   }
 }
