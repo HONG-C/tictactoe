@@ -1,6 +1,9 @@
 #include <iostream>
 
-using namespace std; 
+
+using namespace std;
+
+
 int x_loc=0;  //틱택토 판에서 x위치
 int y_loc=0;  //틱택토 판에서 y위치
 int whoz_turn=0;//0일때 X차례, 1일때 O차례
@@ -8,6 +11,8 @@ int whoz_win=0;
 int check_win(char (*arr)[3]);//행렬을 입력받아 승부를 체크하는 함수
 //승부가 안나면 0,x가 이기면 1, o가 이기면 2 반환
 void print_arr(char (*arr)[3]);//틱택토 행렬을 보여주는 함수
+
+
 
 int check_win(char (*arr)[3])//행렬을 입력받아 승부를 체크하는 함수
 //승부가 안나면 0,x가 이기면 1, o가 이기면 2 반환
@@ -29,7 +34,6 @@ int check_win(char (*arr)[3])//행렬을 입력받아 승부를 체크하는 함
       
     }
   }  
-  
   
   for (int j=0;j<3;j++)//세로 한줄을 만들었을 시
   {
@@ -63,6 +67,30 @@ int check_win(char (*arr)[3])//행렬을 입력받아 승부를 체크하는 함
   
   return 0;//승부가 나지 않은 경우 함수 탈출!
 }
+
+  int set_stone(char (*arr)[3])
+  {
+  
+    if((whoz_turn%2)==0&&arr[x_loc][y_loc]=='.')//누구 차례인지에 따라 x 또는 o 입력
+    {
+      arr[x_loc][y_loc]='X';
+      ++whoz_turn;
+      return 0;
+    }
+    if((whoz_turn%2)==1&&arr[x_loc][y_loc]=='.')
+    {
+      arr[x_loc][y_loc]='O';
+      ++whoz_turn;
+      return 0;
+    }
+    else
+    {
+     cout<<"거기엔 둘수 없습니다!\n";
+     return 0;
+    }
+  }
+
+
 
 void print_arr(char (*arr)[3])//틱택토 행렬을 보여주는 함수
 {
@@ -99,16 +127,7 @@ while(1)
   cout<<"어디에 둘건가요?";
   cin>>loc; //둘 위치를 입력받음
   find_loc(loc);  //입력받은 위치를 배열 위치로 변환
-  if(whoz_turn==0)//누구 차례인지에 따라 x 또는 o 입력
-    {
-      arr[x_loc][y_loc]='X';
-      whoz_turn=1;
-    }
-  else
-    {
-      arr[x_loc][y_loc]='O';
-      whoz_turn=0;
-    }
+  int a=set_stone(arr);
   whoz_win=check_win(arr);  //누가 이겼는지 승부가 아직 안 났는지 확인
   if(whoz_win==1)
   {
