@@ -23,20 +23,20 @@ while(1)
     cin>>loc; //둘 위치를 입력받음
     tictactoe.find_loc(loc);  //입력받은 위치를 배열 위치로 변환
     int a=tictactoe.set_stone(arr);
-    whoz_win=tictactoe.check_win(arr);  //누가 이겼는지 승부가 아직 안 났는지 확인
-    if(whoz_win==1)
+    tictactoe.whoz_win=tictactoe.check_win(arr);  //누가 이겼는지 승부가 아직 안 났는지 확인
+    if(tictactoe.whoz_win==1)
     {
       cout<<"X가 이겼습니다! 게임을 종료합니다\n";
       tictactoe.print_arr(arr);
       break;
     }
-    if(whoz_win==2)
+    if(tictactoe.whoz_win==2)
     {
       cout<<"O가 이겼습니다! 게임을 종료합니다/n";
       tictactoe.print_arr(arr);
       break;
     }
-    if(whoz_turn==9&&whoz_win==0)
+    if(tictactoe.whoz_turn==9&&tictactoe.whoz_win==0)
     {
       cout<<"비겼습니다! 게임을 종료합니다\n";
       tictactoe.print_arr(arr);
