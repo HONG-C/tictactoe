@@ -1,15 +1,6 @@
 #ifndef Game_h
 #define Game_h
 
-class Player
-{
-  private:
-  int point=0;
-  
-  public:
-  Player(const int &a);
-};
-
 class Game
 {
   private:

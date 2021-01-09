@@ -3,10 +3,6 @@
 
 using namespace std;
 
-Player::Player(const int &a)
-{
-  point=a;
-}
 
 int Game::check_win(char (*arr)[3]) const//행렬을 입력받아 승부를 체크하는 함수
 {

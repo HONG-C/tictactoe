@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Game.h"
+#include "Player.h"
 
 using namespace std;
 
@@ -49,6 +50,8 @@ while(1)
 
 int main() 
 {
+  Player X_player(0);
+  Player Y_player(0);
   
   int mode=0;
   cout<<"틱택토 게임에 오신것을 환영합니다\n";
