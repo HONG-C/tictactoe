@@ -3,8 +3,12 @@
 
 using namespace std;
 
+Player::Player(const int &a)
+{
+  point=a;
+}
 
-int Game::check_win(char (*arr)[3])//행렬을 입력받아 승부를 체크하는 함수
+int Game::check_win(char (*arr)[3]) const//행렬을 입력받아 승부를 체크하는 함수
 {
   for (int i=0;i<3;i++)//가로 한줄을 만들었을 시
   {
@@ -92,7 +96,7 @@ int Game::check_win(char (*arr)[3])//행렬을 입력받아 승부를 체크하�
 
 
 
-void Game::print_arr(char (*arr)[3])//틱택토 행렬을 보여주는 함수
+void Game::print_arr(char (*arr)[3]) const//틱택토 행렬을 보여주는 함수
 {
   
   for (int i=0;i<3;i++)
@@ -105,7 +109,7 @@ void Game::print_arr(char (*arr)[3])//틱택토 행렬을 보여주는 함수
   }
 }
 
-void Game::find_loc(int num=0)//입력받은 숫자를 행렬의 위치로 변환해주는 함수
+void Game::find_loc(int num=0) //입력받은 숫자를 행렬의 위치로 변환해주는 함수
 {
   x_loc=num/3;
   y_loc=num%3-1;

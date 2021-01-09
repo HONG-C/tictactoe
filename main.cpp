@@ -3,9 +3,7 @@
 
 using namespace std;
 
-
-
-int main() 
+void game_play(void)
 {
   Game tictactoe;
   
@@ -46,5 +44,28 @@ while(1)
     {
       //승부가 안났으니 걍 진행!
     }
+  }
+}
+
+int main() 
+{
+  
+  int mode=0;
+  cout<<"틱택토 게임에 오신것을 환영합니다\n";
+  cout<<"1인용:1   2인용:2\n모드를 입력하세요:"<<endl;
+  cin>>mode;
+  if(mode==1)
+  {
+    cout<<"1인용게임을 시작합니다"<<endl;
+    cout<<"아직 지원하지 않습니다!"<<endl;
+  }
+  if(mode==2)
+  {
+    cout<<"2인용게임을 시작합니다"<<endl;
+    game_play();  
+  }  
+  else
+  {
+    cout<<"지원하지 않는 기능입니다!"<<endl;
   }
 }
